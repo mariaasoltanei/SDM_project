@@ -1,21 +1,18 @@
 package com.lab2.firstmvc.bootstrap;
 
-import com.lab2.firstmvc.services.ProductService;
-import com.lab2.firstmvc.domain.User;
-import com.lab2.firstmvc.services.ProductService;
+import com.lab2.firstmvc.services.TrackService;
 import com.lab2.firstmvc.services.UserService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 @Component
 public class DataLoader implements CommandLineRunner {
-    private final ProductService productService;
     private final UserService userService;
+    private final TrackService trackService;
 
-    public DataLoader(ProductService productService, UserService userService) {
-
-        this.productService = productService;
+    public DataLoader(UserService userService, TrackService trackService) {
         this.userService = userService;
+        this.trackService = trackService;
     }
 
     @Override

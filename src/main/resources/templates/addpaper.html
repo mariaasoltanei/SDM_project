@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload paper</title>
+</head>
+<body>
+<form th:object="${paper}" method="post"
+enctype="multipart/form-data">
+    <h2>Upload paper</h2>
+    <label>Enter title:</label>
+    <input th:field="*{title}">
+    <label>Enter number of pages(4 or 8):</label>
+    <input th:field="*{noPages}">
+    <input type="file" name="paper">
+    <input type="submit">
+</form>
+</body>
+</html>

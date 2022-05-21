@@ -1,28 +1,26 @@
 package com.lab2.firstmvc.domain;
 
-/*
--Add User: allows us to add a new user (id, name, email)
-
--View Users: show all users
-* */
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class User {
+public class Conference {
     @Id
     @GeneratedValue
     private Long id;
-    private String firstName;
-    private String lastName;
-    private String email;
-    private String password;
+    private String name;
+    private String date;
 
+    @OneToOne(fetch = FetchType.EAGER)
+    private Organizer organizer;
+
+    @OneToMany(mappedBy = "conference")
+    Set<Track> tracks;
 }

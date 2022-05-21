@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add track</title>
+</head>
+<body>
+<form th:object="${track}" method="post">
+    <label>Enter title:</label>
+    <input th:field="*{title}" >
+    <select th:field="*{conference}">
+        <th:block th:each="conf : ${listConf}">
+            <option th:text="${conf.name}" th:value="${conf.id}"></option>
+        </th:block>
+
+    </select>
+    <input type="submit">
+</form>
+</body>
+</html>
